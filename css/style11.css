@@ -1,0 +1,174 @@
+/*Header style*/
+.header_menu{/*top menu bar*/
+	width:100%;
+	height:6%;
+	left:15px;
+	right:0px;
+	top:0px;
+    background: rgba(50, 0, 0, 0.7);
+	position:fixed;
+	z-index:10;
+	display:flex;
+	align-items:center;
+}
+.header_btn{/*top menu buttons*/
+	border:none;
+	background: transparent;
+	color:white;
+	font-size:12pt;
+	font-weight:700;
+}
+
+/*-- main --*/
+
+.frame-border {
+    width: 100%;
+    height: 90%;
+	bottom:3%;
+	top:4%;
+	position: absolute;
+    outline: none;
+    border-color: red;
+	overflow-y: auto;
+    border-style: dashed transparent;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin: 10px auto; 
+}
+#bg-div{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:url("../images/bg1.png") no-repeat;
+    background-size: cover;
+	z-index:-100;
+	opacity:0.1;
+}
+	
+.footer_bottom{
+	width:100%;
+	position: absolute;
+	bottom:0px;
+	text-align:right;
+	right:0px;
+	background:rgba(50,0,0,0.7);
+}
+.footer_bottom p{
+	font-size:14px;
+	font-family:font-family: Arial, Helvetica, sans-serif;
+	font-style:oblique;
+}
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+	overflow-y:auto;
+    z-index: 11;
+	display:none;
+	animation: menu_styles 0.9s;
+}
+/*104.237.142.183/jerm-video/test.html*/
+/*Login modal*/
+#loginModal {
+	background:rgba(10, 10, 0, 0.6);
+	#opacity:0.9;
+}
+.modal-content{
+    #background: yellow;
+    background: rgba(210, 247, 235, 1);
+
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    overflow: hidden;
+    border: none;
+    /* background: url(../img/cross.png) no-repeat center center; */
+    /* background: none; */
+    /* text-indent: 200%; */
+    /* color: rgba(255, 255, 255, 0); */
+    outline: none;
+    z-index: 100;
+    color: lightgreen	;
+    background: #3f51b5;
+}
+
+/* Menu style */
+.overlay nav {
+	text-align: left;
+	position: relative;
+	top: 15%;
+	height: 60%;
+	#-webkit-transform: translateY(50%);
+	#transform: translateY(50%);
+}
+
+.overlay ul {
+	list-style: none;
+	padding: 0;
+	margin-left: 20%;
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+
+.overlay ul li {
+	display: block;
+	height: calc(100% / 7);
+	#min-height: 60%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.overlay ul li a {
+    font-size: 20px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    display: block;
+    color: #fff;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+	text-decoration:none;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+	color: #3f51b5;
+}
+.row{
+	width:100%;
+	text-align:center;	
+}
+/* Effects */
+@keyframes menu_styles{
+	from{
+		top:0%;
+		left:50%;
+		width:0%;
+		height:0%;
+		background:red;
+	}/*30%{width:40%;height:40%;}50%{width:70%;height:70%;}70%{width:90%;height:90%;}*/
+	to{
+		width:100%;
+		height:100%;
+	}
+}
+
+@media screen and (max-height: 30.5em) {
+	.overlay nav {
+		height: 100%;
+		font-size: 34px;
+	}
+	.overlay ul li {
+		min-height: 34px;
+	}
+}
