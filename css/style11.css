@@ -39,7 +39,7 @@
 .frame-border .row{
 	display:block;
 	#width:100%;
-	#margin-left:auto;
+	margin-left:auto;
 	margin-right:auto;
 }
 #bg-div{
@@ -51,15 +51,40 @@
 	z-index:-100;
 	opacity:0.2;
 }
-/*home page image properties*/
+/*Inspirational page image properties*/
 .msgz img, .insp_img img{
 	display:block;
-	width:90%;
+	width:99%;
 	height:250px;
 	#left:5%;
 	margin-left:auto;
+	margin-right:auto;
 	text-align:center;
 	opacity:1;
+}
+/*Home page image properties*/
+#slide .slide_img{
+	display:block;
+	width:99%;
+	height:250px;
+	left:0px;
+	#position:absolute;
+	opacity:1;
+	#transform:rotate(90degrees);
+	transition:width 1s, left 1s;
+}
+/*Fun facts div properties*/
+#enlighten, #enlighten img{
+	display:block;
+	height:250px;
+	width:99%;
+	#left:220px;
+	transition:left 1s,width 1s;
+}
+div #enlighten {
+	#display:relative;
+	#left:-100px;
+	
 }
 	
 .footer_bottom{

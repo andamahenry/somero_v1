@@ -40,15 +40,16 @@
 			<button type="button" class="overlay-close" rep="menu-div"><i class="fa fa-times"></i></button>
 			<nav>
 				<ul>
-					<li><a href="#main" class="fa fa-home">Home</a></li>
-					<li><a href="#lessons" class="glyphicon glyphicon-blackboard">Lessons</a></li>
-					<li><a href="#notes" class="glyphicon glyphicon-book">Notes</a></li>
-					<li><a href="#assignments" class="glyphicon glyphicon-folder-open">Assignments</a></li>
-					<li><a href="#questions" class="glyphicon glyphicon-list-alt">FAQs</a></li>
-					<li><a href="#profile" class="glyphicon glyphicon-user">Profile</a></li>
-					<li><a href="#account" class="glyphicon glyphicon-cog">Account</a></li>
-					<li><a href="#developer" class="glyphicon glyphicon-wrench">Developer</a></li>
-					<li><a href="#logout" class="glyphicon glyphicon-off">Logout</a></li>
+					<li><a href="#home_div" rep="home_div" class="fa fa-home menuItem">Home</a></li>
+					<li><a href="#lessons_div" rep="lessons_div" class="glyphicon glyphicon-blackboard menuItem">Lessons</a></li>
+					<li><a href="#notes_div" rep="notes_div" class="glyphicon glyphicon-book menuItem">Notes</a></li>
+					<li><a href="#assignments_div" rep="assignments_div" class="glyphicon glyphicon-folder-open menuItem">Assignments</a></li>
+					<li><a href="#questions_div" rep="questions_div" class="glyphicon glyphicon-list-alt menuItem">FAQs</a></li>
+					<li><a href="#msgz_div" rep="msgz_div" class="fa fa-lightbulb-o menuItem">Inspirational</a></li>
+					<li><a href="#profile_div" rep="profile_div" class="glyphicon glyphicon-user menuItem">Profile</a></li>
+					<li><a href="#account_div" rep="account_div" class="glyphicon glyphicon-cog menuItem">Account</a></li>
+					<li><a href="#developer_div" rep="developer_div" class="glyphicon glyphicon-wrench menuItem">Developer</a></li>
+					<!--li><a href="#logout_div" class="glyphicon glyphicon-off">Logout</a></li-->
 				</ul>
 			</nav>
 		</div>
@@ -114,19 +115,23 @@
 		<!-- //login modal --> 
 		
 		<div class="frame-border" id="main_container_frame">
+			<!-- Home page content -->
+			<div class="row msgz" id="home_div">
+				<div id="slide">
+					<img class="slide_img" src="images/pic3.jpg" alt="Always Be inpsired to learn!" />
+				</div><br/>
+				<div id="enlighten">
+					<img class="fun-fact" id="fun-fact" src="images/fun-facts.gif"/>
+				</div><br/>
+			
+			</div>
+			<!-- Inspirational content -->
 			<div class="row msgz" id="msgz_div">
 				<div class="insp_msg" id="msg">
 					<img src="images/inspiration/msg.jpg"></img>
 				</div><br>
-				<!--div class="insp_msg" id="msg1">
-					<img src="images/inspiration/msg1.jpg"></img>
-				</div><br>
-				<div class="insp_msg" id="msg2">
-					<img src="images/inspiration/msg2.jpg"></img>
-				</div><br>
-				<div class="insp_msg" id="msg3">
-					<img src="images/inspiration/msg3.jpg"></img>
-				</div><br-->
+				<!-- <div class="insp_msg" id="msg1"><img src="images/inspiration/msg1.jpg"></img></div><br><div class="insp_msg" id="msg2">
+				<img src="images/inspiration/msg2.jpg"></img></div><br><div class="insp_msg" id="msg3"><img src="images/inspiration/msg3.jpg"></img></div><br-->
 			</div>
 			
 		</div>
