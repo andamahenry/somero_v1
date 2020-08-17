@@ -106,7 +106,7 @@ function edu_slider(){
 				//end;
 					
 			}
-			if(edu_number > total_edu){
+			if(edu_number == total_edu){
 				edu_number = 1;
 			}
 			
