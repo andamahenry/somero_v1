@@ -3,11 +3,15 @@
 let total_inspirations = 45;//Total number of inspirational messages to display
 let total_facts = 32;//Total number of fun-facts messages to display
 let total_loops = 0;
+let total_edu = 93;
+
 let slide_number = 1;//Set initial inspirational slide number
 let fact_number = 1;
+let edu_number = 1;
 let delayTime = 11000;//Set time for which to display quote before changing it
 let delayTime1 = 3000;//Set time for which to display quote before changing it
-let factDelay = 6000;
+let factDelay = 10000;
+let eduDelay = 12000;//Set time interval for the educational slides
 let fact_slide;
 
 window.onload = function(){
@@ -22,6 +26,8 @@ window.onload = function(){
 	
 	//Call the slide function for fun-fact messages
 	fact_slide = window.setInterval(fact_slider,factDelay);
+	//Call the educational slide function
+	let edu_slide = window.setInterval(edu_slider,eduDelay);
 	
 	//populate messages div with inspirational quotes
 	let msgz = document.getElementById('msgz_div');//Div to contain all messages
@@ -36,6 +42,7 @@ window.onload = function(){
 		msgz.appendChild(document.createElement('br'));
 	}
 }
+
 function insp_slider(){//Populate inspirational div at home page
 	let insp_img = document.getElementsByClassName('slide_img');//Inspirational message image
 	let insp_path = "images/inspiration/msg"+slide_number+".jpg";//Image message path/name
@@ -49,36 +56,62 @@ function insp_slider(){//Populate inspirational div at home page
 	}
 	slide_number+=1;//Increase slide number by one to go to the hext slide pic
 }
+
 function fact_slider(){//Populate facts div at home page
 	let fact_div = document.getElementById("enlighten");
 	let fact_img = document.getElementById("fun-fact");
 	setTimeout(function(){
 			//fact_img.style.width = '99%';
-			fact_div.style.width = '99%';
+			fact_div.style.width = '99.5%';
 		},1000);
-	let fact_path = "images/fun-facts/fun"+fact_number+".jpg";
+	//let fact_path = "images/fun-facts/fun"+fact_number+".jpg";
 	setTimeout(function(){
 			//fact_img.style.width = '0px';
 			fact_div.style.width = '0px';
 		},(factDelay-1000));
-	let req = new XMLHttpRequest();
+	/*let req = new XMLHttpRequest();
 	req.open('head',fact_path,true);
 	req.send();
 	req.onload = function(){
 		let fact_img_src;
 		//console.log(this.status);
 		if(this.status == 200){
-			fact_img.src = "images/fun-facts/fun"+fact_number+".jpg";
 		}else if(this.status == 404){
 			fact_img.src = "images/fun-facts/fun"+fact_number+".png";
 			//clearInterval(fact_slide);
 		}
 		
-		if(fact_number == total_facts){//Reset fact counter at maxima
-			fact_number = 1;
-		}
-		fact_number++;
-	}	
+	}	*/
+	fact_img.src = "images/fun-facts/fun"+fact_number+".jpg";
+	if(fact_number == total_facts){//Reset fact counter at maxima
+		fact_number = 1;
+	}
+	fact_number++;
+}
+
+function edu_slider(){
+	let pos = 0;
+	let div = document.getElementById("edu-inner-div");
+	let edu = document.getElementById("edu-img");
+	let start = setInterval(function(){
+			//console.log('katandise');
+			pos+=5;
+			div.style.right = pos+'%';
+			//console.log('Start pos value is: '+pos);	
+			if(pos==100){
+				clearInterval(start);
+				edu.src = "images/educational/edu"+edu_number+".jpg";
+				div.style.right = '0px';
+				edu_number++;
+				//end;
+					
+			}
+			if(edu_number > total_edu){
+				edu_number = 1;
+			}
+			
+		},50);
+		//console.log(edu_number);
 }
 function display_menu(){//Function to display the menu div
 	document.getElementById("menu-div").style.display = "block";

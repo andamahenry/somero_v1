@@ -77,14 +77,13 @@
 #enlighten, #enlighten img{
 	display:block;
 	height:250px;
-	width:99%;
+	width:99.5%;
 	#left:220px;
 	transition:left 1s,width 1s;
 }
-div #enlighten {
-	#display:relative;
-	#left:-100px;
-	
+#educational #edu-inner-div{
+	position:relative;
+	#transition:right 4s ease;
 }
 	
 .footer_bottom{
