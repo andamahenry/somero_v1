@@ -41,8 +41,61 @@ window.onload = function(){
 		msgz.appendChild(div);
 		msgz.appendChild(document.createElement('br'));
 	}
+	//Add event listener on the home message divs
+	let homes = document.getElementsByTagName("img");
+	for(let h=0;h<homes.length;h++){
+		homes[h].addEventListener('click',homesFunction);
+	}
+	//Listen to menu items click functionality
+	let menu1 = document.getElementsByClassName("menuItem");
+	for(let m=0;m<menu1.length;m++){
+		menu1[m].addEventListener('click',menuSelector);
+		//Hide all divs and only display the home menu div on load
+		if(menu1[m].id === "home_div"){
+			menu1[m].style.display = "block";
+		}else{
+			menu1[m].style.display = "none";
+		}
+	}
+	//disable screen shots
+	//window.addEventListener('keyup',kawaaniFunc);
 }
-
+//Display only the selected menu item div(s)
+function menuSelector(){//Select menu to display when selected on menu list
+	let menu2 = this.getAttribute('rep');
+	let menu3 = document.getElementsByClassName('msgz');
+	for(let m1=0;m1<menu3.length;m1++){
+		if(menu3[m1].id === menu2){
+			menu3[m1].style.display = "block";
+		}else{
+			menu3[m1].style.display = "none";
+		}
+	}
+	//document.getElementById(menu2).display = "block";
+	console.log(menu2);
+}
+//Home message divs event handler
+function homesFunction(){
+	document.getElementById("imageZoomBtn").click();
+	document.getElementById("zoomImg").src = this.src;
+	
+}
+//Disable print screen
+/*
+function kawaaniFunc(e){
+	let pressedKey = e.keyCode;
+	if(e.keyCode == 44){
+		e.preventDefault();
+		//let kawaani = document.createElement('input');
+		//	kawaani.setAttribute('value','Not Allowed!');
+		//	document.body.appendChild(kawaani);
+		//	kawaani.select();
+		//	document.execCommand("copy");
+			
+	}else{return 0;}
+	console.log(pressedKey);
+}
+*/
 function insp_slider(){//Populate inspirational div at home page
 	let insp_img = document.getElementsByClassName('slide_img');//Inspirational message image
 	let insp_path = "images/inspiration/msg"+slide_number+".jpg";//Image message path/name
@@ -60,28 +113,8 @@ function insp_slider(){//Populate inspirational div at home page
 function fact_slider(){//Populate facts div at home page
 	let fact_div = document.getElementById("enlighten");
 	let fact_img = document.getElementById("fun-fact");
-	setTimeout(function(){
-			//fact_img.style.width = '99%';
-			fact_div.style.width = '99.5%';
-		},1000);
-	//let fact_path = "images/fun-facts/fun"+fact_number+".jpg";
-	setTimeout(function(){
-			//fact_img.style.width = '0px';
-			fact_div.style.width = '0px';
-		},(factDelay-1000));
-	/*let req = new XMLHttpRequest();
-	req.open('head',fact_path,true);
-	req.send();
-	req.onload = function(){
-		let fact_img_src;
-		//console.log(this.status);
-		if(this.status == 200){
-		}else if(this.status == 404){
-			fact_img.src = "images/fun-facts/fun"+fact_number+".png";
-			//clearInterval(fact_slide);
-		}
-		
-	}	*/
+	setTimeout(function(){fact_div.style.width = '99.5%';},1000);
+	setTimeout(function(){fact_div.style.width = '0px';},(factDelay-1000));
 	fact_img.src = "images/fun-facts/fun"+fact_number+".jpg";
 	if(fact_number == total_facts){//Reset fact counter at maxima
 		fact_number = 1;
@@ -94,24 +127,18 @@ function edu_slider(){
 	let div = document.getElementById("edu-inner-div");
 	let edu = document.getElementById("edu-img");
 	let start = setInterval(function(){
-			//console.log('katandise');
 			pos+=5;
 			div.style.right = pos+'%';
-			//console.log('Start pos value is: '+pos);	
 			if(pos==100){
 				clearInterval(start);
 				edu.src = "images/educational/edu"+edu_number+".jpg";
 				div.style.right = '0px';
 				edu_number++;
-				//end;
-					
 			}
 			if(edu_number == total_edu){
 				edu_number = 1;
 			}
-			
 		},50);
-		//console.log(edu_number);
 }
 function display_menu(){//Function to display the menu div
 	document.getElementById("menu-div").style.display = "block";
@@ -122,14 +149,4 @@ function close_overlay(){
 }
 
 //Hide menu on window scroll down
-/*var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("header_menu").style.top = "0";
-  } else {
-    document.getElementById("header_menu").style.top = "-50px";
-  }
-  prevScrollpos = currentScrollPos;
-}*/
-//Populate messages div
+
