@@ -52,10 +52,10 @@ window.onload = function(){
 		menu1[m].addEventListener('click',menuSelector);
 		//Hide all divs and only display the home menu div on load
 		if(menu1[m].id === "home_div"){
-			menu1[m].style.display = "block";
-		}else{
+			menu1[m].click();
+		}/*else{
 			menu1[m].style.display = "none";
-		}
+		}*/
 	}
 	//disable screen shots
 	//window.addEventListener('keyup',kawaaniFunc);
@@ -72,7 +72,7 @@ function menuSelector(){//Select menu to display when selected on menu list
 		}
 	}
 	//document.getElementById(menu2).display = "block";
-	console.log(menu2);
+	//console.log(menu2);
 }
 //Home message divs event handler
 function homesFunction(){
