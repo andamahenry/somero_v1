@@ -37,7 +37,7 @@
 		</div>
 
 		<div class="overlay" id="menu-div" hidden>
-			<button type="button" class="overlay-close" rep="menu-div"><i class="fa fa-times"></i></button>
+			<button type="button" id="close_menu" class="overlay-close" rep="menu-div"><i class="fa fa-times"></i></button>
 			<nav>
 				<ul>
 					<li><a href="#home_div" rep="home_div" class="fa fa-home menuItem">Home</a></li>
@@ -52,6 +52,17 @@
 					<!--li><a href="#logout_div" class="glyphicon glyphicon-off">Logout</a></li-->
 				</ul>
 			</nav>
+		</div>
+		<!-- Image Zoom Model -->
+		<button id="imageZoomBtn" data-target="#imageModal" data-toggle="modal" type="button" hidden><i class="fa fa-eye-open"></i>&nbsp;View</button>
+		<div class="modal" id="imageModal" role="dialog">
+			<div class="modal-dialog" role="dialog">
+				<div class="modal-content">
+					<div class="modal-body image-zoom"><!-- Image container -->     
+						<img id="zoomImg" />
+					</div>  
+				</div> <!-- //Image container -->
+			</div>
 		</div>
 		
 		<!-- login modal -->
@@ -117,14 +128,14 @@
 		<div class="frame-border" id="main_container_frame">
 			<!-- Home page content -->
 			<div class="row msgz" id="home_div">
-				<div id="slide">
+				<div id="slide" class="clickable1">
 					<img class="slide_img" src="images/pic3.jpg" alt="Always Be inpsired to learn!" />
 				</div><br/>
-				<div id="enlighten">
+				<div id="enlighten" class="clickable1">
 					<img class="fun-fact" id="fun-fact" src="images/fun-facts.gif"/>
 				</div><br/>
 				<div id="educational">
-					<div id="edu-inner-div">
+					<div id="edu-inner-div" class="clickable1">
 						<img id="edu-img" src="images/educational/science-quotes.jpg"/>
 					</div>
 				</div><br/>
@@ -135,8 +146,6 @@
 				<div class="insp_msg" id="msg">
 					<img src="images/inspiration/msg.jpg"></img>
 				</div><br>
-				<!-- <div class="insp_msg" id="msg1"><img src="images/inspiration/msg1.jpg"></img></div><br><div class="insp_msg" id="msg2">
-				<img src="images/inspiration/msg2.jpg"></img></div><br><div class="insp_msg" id="msg3"><img src="images/inspiration/msg3.jpg"></img></div><br-->
 			</div>
 			
 		</div>
