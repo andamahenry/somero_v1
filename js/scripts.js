@@ -71,12 +71,12 @@ function menuSelector(){//Select menu to display when selected on menu list
 			menu3[m1].style.display = "none";
 		}
 	}
-	//document.getElementById(menu2).display = "block";
-	//console.log(menu2);
+	document.getElementById("close_menu").click();
 }
 //Home message divs event handler
 function homesFunction(){
-	document.getElementById("imageZoomBtn").click();
+	let zoomer = document.getElementById("imageZoomBtn");
+	zoomer.click();
 	document.getElementById("zoomImg").src = this.src;
 	
 }
