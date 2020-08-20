@@ -14,7 +14,7 @@ let factDelay = 10000;
 let eduDelay = 12000;//Set time interval for the educational slides
 let fact_slide;
 
-window.onload = function(){
+window.onload = function(){//Execute some functions on load
 	let close_btns = document.getElementsByClassName("overlay-close");
 	let menu_btn = document.getElementById("display_menu");
 		menu_btn.addEventListener("click",display_menu);
@@ -53,13 +53,15 @@ window.onload = function(){
 		//Hide all divs and only display the home menu div on load
 		if(menu1[m].id === "home_div"){
 			menu1[m].click();
-		}/*else{
-			menu1[m].style.display = "none";
-		}*/
+		}
 	}
+	//Click on the home menu button
+	let home1 = document.getElementById("home1");
+	home1.click();
 	//disable screen shots
 	//window.addEventListener('keyup',kawaaniFunc);
 }
+
 //Display only the selected menu item div(s)
 function menuSelector(){//Select menu to display when selected on menu list
 	let menu2 = this.getAttribute('rep');
