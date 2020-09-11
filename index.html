@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>SOMERO APP</title> 
-<!-- For-Mobile-Apps-and-Meta-Tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="SOMERO e-learning mobile app platform" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //For-Mobile-Apps-and-Meta-Tags -->
-<!-- Custom Theme files -->
-<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
-<link rel="stylesheet" type="text/css" href="css/style11.css" />
-<!-- menu style sheet -->
-<link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
-<!-- //Custom Theme files -->
-<!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
-<!-- //font-awesome icons -->
+	<title>SOMERO APP</title> 
+	<!-- For-Mobile-Apps-and-Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- //For-Mobile-Apps-and-Meta-Tags -->
+	<meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:;
+		script-src 'self' 'unsafe-inline' 'unsafe-eval' *;  style-src  'self' 'unsafe-inline' *" />
+	<meta name="keywords" content="SOMERO e-learning mobile app platform" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Custom Theme files -->
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+	<link rel="stylesheet" type="text/css" href="css/style11.css" />
+	<!-- menu style sheet -->
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
+	<!-- //Custom Theme files -->
+	<!-- font-awesome icons -->
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+	<!-- //Leaflet js for maps -->
+	<link rel="stylesheet" href="leaflet/leaflet.css" />
 
 </head>
+		
 <body class="bg">
 	<div id="bg-div"></div>
-	<div class="main-row">
+	<!--Page Loader-->
+	<div id="page_loader">
+		<div id="loader"><!-- this contains a loader --></div>
+	</div>
+	<!--Main content goes Here-->
+	<div class="main-row" id="main-row" hidden>
 		<div class="row header_menu" id="header_menu">
 			<div class="col-xs-2" align="left">
 				<button class="header_btn" id="display_menu" data-target="#trigger-overlay" type="button"><i class="fa fa-bars"></i></button>
@@ -41,11 +50,12 @@
 			<nav>
 				<ul>
 					<li><a href="#home_div" rep="home_div" class="fa fa-home menuItem" id="home1">Home</a></li>
+					<li><a href="#msgz_div" rep="msgz_div" class="fa fa-lightbulb-o menuItem">Inspirational</a></li>
+					<li><a href="#maps_div" rep="maps_div" class="glyphicon glyphicon-globe menuItem" id='map1'>World Map</a></li>
 					<li><a href="#lessons_div" rep="lessons_div" class="glyphicon glyphicon-blackboard menuItem">Lessons</a></li>
 					<li><a href="#notes_div" rep="notes_div" class="glyphicon glyphicon-book menuItem">Notes</a></li>
 					<li><a href="#assignments_div" rep="assignments_div" class="glyphicon glyphicon-folder-open menuItem">Assignments</a></li>
 					<li><a href="#questions_div" rep="questions_div" class="glyphicon glyphicon-list-alt menuItem">FAQs</a></li>
-					<li><a href="#msgz_div" rep="msgz_div" class="fa fa-lightbulb-o menuItem">Inspirational</a></li>
 					<li><a href="#profile_div" rep="profile_div" class="glyphicon glyphicon-user menuItem">Profile</a></li>
 					<li><a href="#account_div" rep="account_div" class="glyphicon glyphicon-cog menuItem">Account</a></li>
 					<li><a href="#developer_div" rep="developer_div" class="glyphicon glyphicon-wrench menuItem">Developer</a></li>
@@ -99,24 +109,24 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 					</div> 
 					<div class="modal-body login-page "><!-- login-page --> 
-						<form action="#" method="post">
-								<div class="col"><input type="text" class="text form-group" name="fname" placeholder="First Name Here" required=""/></div>
-								<div class="col"><input type="text" class="text form-group" name="sname" placeholder="Surname Name Here" required=""/></div>
-								<div class="col"><input type="tel" class="tel form-group" name="tel" placeholder="Enter User Phone Number" required=""/></div>
-								<div class="col"><input type="email" class="email form-group" name="email" placeholder="Enter Email Address"/></div>
-								<div class="col"><input type="password" class="password form-group" name="password1" placeholder="Enter Password" required=""/></div>
-								<div class="col"><input type="password" class="password form-group" name="password2" placeholder="confirm Password" required=""/></div>
+						<form action="#" method="post" id="registration_form">
+							<div class="col"><input type="text" class="sreg form-group" id="fname" name="fname" placeholder="First Name Here" required="true"/></div>
+							<div class="col"><input type="text" class="sreg form-group" id="sname" name="sname" placeholder="Surname Name Here" required="true"/></div>
+							<div class="col"><input type="tel" class="sreg form-group" id="tel" name="tel" placeholder="Enter User Phone Number" required="true"/></div>
+							<div class="col"><input type="email" class="sreg form-group" id="email" name="email" placeholder="Enter Email Address"/></div>
+							<div class="col"><input type="password" class="sreg form-group" id="pswd1" name="pswd1" placeholder="Enter Password" required="true"/></div>
+							<div class="col"><input type="password" class="sreg form-group" id="pswd2" name="pswd2" placeholder="confirm Password" required="true"/></div>
 							<label>Select Gender:</label>
-							<div class="radio inline"><label><input type="radio" value="female" name="genderRadio" checked>Female</label></div>
-							<div class="radio inline"><label><input type="radio" value="male" name="genderRadio" checked>Male</label></div>
+							<div class="radio inline"><label><input type="radio" value="female" id='f' name="gender" checked>Female</label></div>
+							<div class="radio inline"><label><input type="radio" value="male" id='m' name="gender" >Male</label></div>
 							<label>Select Learner Category:</label>
-								<div class="radio" disabled><label><input type="radio" value="pre" name="category" disabled>Nursery</label></div>
-								<div class="radio"><label><input type="radio" value="ple" name="category">Primary</label></div>
-								<div class="radio"><label><input type="radio" value="uce" name="category" checked>Secondary(U.C.E)</label></div>
-								<div class="radio"><label><input type="radio" value="uace" name="category">Secondary(U.A.C.E)</label></div>
-								<div class="radio disabled"><label><input type="radio" value="ter" name="category" disabled>Tertiary</label></div>
+							<div class="radio" disabled><label><input type="radio" value="pre" name="category" disabled>Nursery</label></div>
+							<div class="radio"><label><input type="radio" value="ple" name="category">Primary</label></div>
+							<div class="radio"><label><input type="radio" value="uce" name="category" checked>Secondary(U.C.E)</label></div>
+							<div class="radio"><label><input type="radio" value="uace" name="category">Secondary(U.A.C.E)</label></div>
+							<div class="radio disabled"><label><input type="radio" value="ter" name="category" disabled>Tertiary</label></div>
 							<div class="row float-right">
-								<button type="button" name="register_btn" class="btn btn-primary btn-lg">Register</button>
+								<button type="button" id="register_btn" name="register_btn" class="btn btn-primary btn-lg">Register</button>
 							</div>
 						</form>
 					</div>  
@@ -127,7 +137,7 @@
 		
 		<div class="frame-border" id="main_container_frame">
 			<!-- Home page content -->
-			<div class="row msgz" id="home_div">
+			<div class="row msgz" id="home_div" hidden>
 				<div id="slide" class="clickable1">
 					<img class="slide_img" src="images/pic3.jpg" alt="Always Be inpsired to learn!" />
 				</div><br/>
@@ -147,7 +157,11 @@
 					<img src="images/inspiration/msg.jpg"></img>
 				</div><br>
 			</div>
-			
+			<!--World Maps-->
+			<div class="row msgz maps" id="maps_div" hidden>
+				<div id="world_map">
+				</div>
+			</div>
 		</div>
 		<div class="footer_bottom">
 			<p><span id="poweredBy">Powered by </span><a href="http://jermtechnology.com">JERM Technology</a></p>
@@ -176,5 +190,9 @@
 	<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 	<script src="js/scripts.js"></script>
+	<script src="leaflet/leaflet.js"></script>
+	<script src="js/maps.js"></script><!--world maps info-->
+	<script src="js/server_api.js"></script><!--world maps info-->
+	<!--script src="js/cordova.js"></script-->
 </body>
 </html>
