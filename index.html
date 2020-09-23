@@ -30,17 +30,37 @@
 	<div id="page_loader">
 		<div id="loader"><!-- this contains a loader --></div>
 	</div>
+	<!--//Page Loader-->
+	<!--Request loader-->
+	<div id="request_loader_bg">
+		<div id="request_loader_img">
+			loading ...
+		</div>
+	</div>
+	<!--//Request loader-->
+	<!--Page Alerts-->
+	<div class="h_alert-container" id="h_alert-container" hidden>
+		<div class="modal alert alert-success alert-dismissible" id="default-alert">
+			<a href="#" id="h_alert-close" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong><span id='alert-msg'>Bingo!</span></strong>
+		</div>
+	</div>
+	<!--//Page Alerts-->		
+	
 	<!--Main content goes Here-->
 	<div class="main-row" id="main-row" hidden>
 		<div class="row header_menu" id="header_menu">
 			<div class="col-xs-2" align="left">
 				<button class="header_btn" id="display_menu" data-target="#trigger-overlay" type="button"><i class="fa fa-bars"></i></button>
 			</div>
+			<div id="user_id" hidden="true"></div>
+			<div id="session_id" hidden="true"></div>
 			<div class="col-xs-5" align="right">
-				<button class="header_btn" data-target="#registerModal" data-toggle="modal" type="button"><i class="fa fa-pencil-square-o"></i>&nbsp;Register</button>
+				<button class="header_btn" id="main_register_btn" data-target="#registerModal" data-toggle="modal" type="button"><i class="fa fa-pencil-square-o"></i>&nbsp;Register</button>
 			</div>
 			<div class="col-xs-5" align="right">
-				<button class="header_btn" data-target="#loginModal" data-toggle="modal" type="button"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+				<button class="header_btn" type="button" id="main_logout_btn" hidden>Sign Out&nbsp;<i class="fa fa-sign-out"></i></button>
+				<button class="header_btn" data-target="#loginModal" id="main_login_btn" data-toggle="modal" type="button"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
 			</div>
 			<hr>
 		</div>
@@ -49,17 +69,16 @@
 			<button type="button" id="close_menu" class="overlay-close" rep="menu-div"><i class="fa fa-times"></i></button>
 			<nav>
 				<ul>
-					<li><a href="#home_div" rep="home_div" class="fa fa-home menuItem" id="home1">Home</a></li>
-					<li><a href="#msgz_div" rep="msgz_div" class="fa fa-lightbulb-o menuItem">Inspirational</a></li>
-					<li><a href="#maps_div" rep="maps_div" class="glyphicon glyphicon-globe menuItem" id='map1'>World Map</a></li>
-					<li><a href="#lessons_div" rep="lessons_div" class="glyphicon glyphicon-blackboard menuItem">Lessons</a></li>
-					<li><a href="#notes_div" rep="notes_div" class="glyphicon glyphicon-book menuItem">Notes</a></li>
-					<li><a href="#assignments_div" rep="assignments_div" class="glyphicon glyphicon-folder-open menuItem">Assignments</a></li>
-					<li><a href="#questions_div" rep="questions_div" class="glyphicon glyphicon-list-alt menuItem">FAQs</a></li>
-					<li><a href="#profile_div" rep="profile_div" class="glyphicon glyphicon-user menuItem">Profile</a></li>
-					<li><a href="#account_div" rep="account_div" class="glyphicon glyphicon-cog menuItem">Account</a></li>
-					<li><a href="#developer_div" rep="developer_div" class="glyphicon glyphicon-wrench menuItem">Developer</a></li>
-					<!--li><a href="#logout_div" class="glyphicon glyphicon-off">Logout</a></li-->
+					<li><a rep="home_div" class="fa fa-home menuItem" id="home1">Home</a></li>
+					<li><a rep="msgz_div" class="fa fa-lightbulb-o menuItem">Inspirational</a></li>
+					<li><a rep="maps_div" class="glyphicon glyphicon-globe menuItem" id='map1'>World Map</a></li>
+					<li><a rep="lessons_div" class="glyphicon glyphicon-blackboard menuItem crucial">Lessons</a></li>
+					<li><a rep="notes_div" class="glyphicon glyphicon-book menuItem crucial" disabled>Notes</a></li>
+					<li><a rep="assignments_div" class="glyphicon glyphicon-folder-open menuItem crucial">Assignments</a></li>
+					<li><a rep="questions_div" class="glyphicon glyphicon-list-alt menuItem crucial">FAQs</a></li>
+					<li><a rep="profile_div" class="glyphicon glyphicon-user menuItem crucial">Profile</a></li>
+					<li><a rep="account_div" class="glyphicon glyphicon-cog menuItem crucial">Account</a></li>
+					<li><a rep="developer_div" class="glyphicon glyphicon-wrench menuItem">Developer</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -81,17 +100,17 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<span>Enter Login Details</span>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						<button type="button" class="close" id="login_close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 					</div> 
 					<div class="modal-body login-page "><!-- login-page -->     
 						<form action="#" method="post">
 							<div class="row">
-								<div class="col"><input type="tel" class="tel form-group" name="tel" placeholder="Enter User Phone Number" required=""/></div>
-								<div class="col"><input type="password" class="password form-group" name="Password" placeholder="Enter Password" required=""/></div>
+								<div class="col"><input type="tel" class="tel form-group login-details" name="tel" placeholder="Enter User Phone Number" required=""/></div>
+								<div class="col"><input type="password" class="password form-group login-details" name="pswd" placeholder="Enter Password" required=""/></div>
 								<div class="checkbox"> 
 									<div class="col"><label><input type="checkbox">Remember me ?</label></div>
 								</div>  
-								<button type="button" name="login_btn" class="btn btn-primary btn-lg">Login</button>
+								<button type="button" name="login_btn" id="login_btn" class="btn btn-primary btn-lg">Login</button>
 							</div>
 							<br><div class="row"><div class="col"><a href="#">Forgot password?</a></div></div> 
 						</form>
@@ -106,12 +125,12 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<span>Enter Personal Info.</span>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						<button type="button" id="register_close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 					</div> 
-					<div class="modal-body login-page "><!-- login-page --> 
+					<div class="modal-body registration-page "><!-- registration-page -->
 						<form action="#" method="post" id="registration_form">
-							<div class="col"><input type="text" class="sreg form-group" id="fname" name="fname" placeholder="First Name Here" required="true"/></div>
-							<div class="col"><input type="text" class="sreg form-group" id="sname" name="sname" placeholder="Surname Name Here" required="true"/></div>
+							<div class="col"><input type="text" class="sreg form-group" id="fname" name="fname" placeholder="First Name Here" title="First Name" required="true"/></div>
+							<div class="col"><input type="text" class="sreg form-group" id="sname" name="sname" placeholder="Surname Name Here" title="Surname Name" required="true"/></div>
 							<div class="col"><input type="tel" class="sreg form-group" id="tel" name="tel" placeholder="Enter User Phone Number" required="true"/></div>
 							<div class="col"><input type="email" class="sreg form-group" id="email" name="email" placeholder="Enter Email Address"/></div>
 							<div class="col"><input type="password" class="sreg form-group" id="pswd1" name="pswd1" placeholder="Enter Password" required="true"/></div>
@@ -135,6 +154,7 @@
 		</div>
 		<!-- //login modal --> 
 		
+		
 		<div class="frame-border" id="main_container_frame">
 			<!-- Home page content -->
 			<div class="row msgz" id="home_div" hidden>
@@ -149,7 +169,6 @@
 						<img id="edu-img" src="images/educational/science-quotes.jpg"/>
 					</div>
 				</div><br/>
-			
 			</div>
 			<!-- Inspirational content -->
 			<div class="row msgz" id="msgz_div" hidden>
@@ -159,8 +178,7 @@
 			</div>
 			<!--World Maps-->
 			<div class="row msgz maps" id="maps_div" hidden>
-				<div id="world_map">
-				</div>
+				<div id="world_map"></div>
 			</div>
 		</div>
 		<div class="footer_bottom">
