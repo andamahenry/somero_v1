@@ -105,7 +105,13 @@
 	font-size:12pt;
 	font-weight:700;
 }
-
+#main_user_name{/*Main username span style*/
+	#color:rgba(12, 179, 235,0.3);
+	font-size:12pt;
+	font-weight:700;
+	color:silver;
+	text-align:right;
+}
 /*-- main --*/
 .frame-border {
 	position: fixed;
@@ -186,9 +192,103 @@
 	height:100%;
 }
 #world_map{
-	#display:none;
 	width:100%;
 	height:100%;
+}
+#user_profile table tr {
+	height:4.5em;
+	width:100%;
+}
+#user_profile table tr td{
+	vertical-align:middle;
+}
+#user_profile table tr td input{
+	left:0px;
+	right:0px;
+	display:block;
+	width:99.9%;
+	background-color:rgba(235, 200, 188,0.4);
+	border:none;
+	outline:red;
+	font-size:18px;
+	height:35px;
+	overflow:hidden;
+}
+#content_selection_menu{
+	top:3px;
+	position:relative;
+	width:100%;
+	height:100%;
+	text-align:center;
+	overflow:hidden;
+}
+.content_selector{
+	display:inline-block;
+	position:relative;
+	border:0.05em solid blue;
+	border-radius:10px;
+	width:99%;
+	height:100%;
+	margin:auto;
+	background-color:rgba(245, 175, 34,0.5);
+	font-size:20px;
+	font-weight:900;
+	overflow:hidden;
+	vertical-align:center;
+	padding:15px 0;
+	#box-shadow:5px 5px red;
+}
+#topicsDiv{
+	top:-5px;
+	left:2px;
+	display:block;
+	position:relative;
+	width:99%;
+	height:100%;
+	background-color:rgba(201, 191, 169,0.3);
+	color:blue;
+	opacity:0.6;
+	text-align:center;
+	font-size:20px;
+	font-weight:500;
+	line-height:2em;
+	overflow:hidden;
+}
+.subj_topic{
+	border-style: outset;
+	border-bottom-color:silver;
+	border-radius:5px;
+}
+
+#subTopics{
+	display:none;
+	top:55px;
+	position:fixed;
+	display:block;
+	width:100%;
+	height:3em;
+	#background-color:blue;
+	border:0.05em solid blue;
+	opacity:1;
+	overflow:hidden;
+	z-index:50;
+}
+
+.profile_btn{
+	display:inline-block;
+	width:60%;
+	border:1px solid;
+	border-radius:8px;
+	border-color:none;
+	
+}
+.profile_btn :focus{
+	border:0px solid;
+}
+.profile_def{
+	text-align:right;
+	font-size:16px;
+	font-weight:bold;
 }
 	
 .footer_bottom{
@@ -240,10 +340,6 @@
     top: 20px;
     overflow: hidden;
     border: none;
-    /* background: url(../img/cross.png) no-repeat center center; */
-    /* background: none; */
-    /* text-indent: 200%; */
-    /* color: rgba(255, 255, 255, 0); */
     outline: none;
     z-index: 10;
     color: lightgreen	;
